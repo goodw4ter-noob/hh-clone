@@ -1,0 +1,26 @@
+﻿@model LoginViewModel
+
+@{
+	ViewData["Title"] = "Авторизация";
+}
+
+<div>
+	<form action="/login" method="post">
+		@Html.AntiForgeryToken()
+		<div>
+			<label>Электронная почта</label>
+			<input name="Email" type="text" value="@Model.Email" />
+			<div class="error">@Html.ValidationMessageFor(m => m.Email)</div>
+		</div>
+		<div>
+			<label>Пароль</label>
+			<input name="Password" type="password" />
+		</div>
+		<div>
+			<input type="checkbox" name="RememberMe" value="false" /> Запомнить меня
+		</div>
+		<button type="submit">
+			Авторизоваться
+		</button>
+	</form>
+</div>
